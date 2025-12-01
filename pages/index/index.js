@@ -584,7 +584,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '小依助手头像制作',
+      title: '头像生成工具',
       desc: '国旗头像、卡通头像等',
       path: '/pages/index/index',
       imageUrl: getApp().globalData.userInfo.highAvatarUrl,
