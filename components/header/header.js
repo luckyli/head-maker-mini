@@ -30,7 +30,7 @@ Component({
       let that = this
       const tp = new Date().getTime()
       wx.request({
-        url: staticUrl + '/header-bg.json?tp=' + tp,
+        url: staticUrl + '/avatar-header-bg.json?tp=' + tp,
         header: {
           'Content-Type': 'application/json'
         },

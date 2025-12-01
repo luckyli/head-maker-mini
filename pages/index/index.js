@@ -45,15 +45,15 @@ Page({
   onLoad: function () {
     let that = this
     wx.setNavigationBarTitle({
-      title: '小依助手'
+      title: '头像生成工具'
     })
     wx.showShareMenu({
       withShareTicket: true,
       menus: ['shareAppMessage', 'shareTimeline']
     })
-    setTimeout(() => {
-      that.setData({ sendTipFlg: true })
-    }, 60 * 1000);
+    // setTimeout(() => {
+    //   that.setData({ sendTipFlg: true })
+    // }, 60 * 1000);
   },
 
   /**
@@ -287,20 +287,21 @@ Page({
    * 上传抖音头像
    */
   douyinUp: function () {
-    let that = this
-    wx.showModal({
-      title: '制作抖音中国红头像',
-      content: '1.前往抖音保存头像到手机相册\r\n 2.选择手机相册抖音头像进行制作\r\n 3.前往抖音去设置制作好的头像',
-      cancelText: '取消',
-      confirmText: '选择头像',
-      success (res) {
-        if (res.confirm) {
-          that.clickChangeAvatarImage()
-        } else if (res.cancel) {
-          console.log('用户点击取消')
-        }
-      }
-    })
+    this.clickChangeAvatarImage()
+    // let that = this
+    // wx.showModal({
+    //   title: '制作抖音中国红头像',
+    //   content: '1.前往抖音保存头像到手机相册\r\n 2.选择手机相册抖音头像进行制作\r\n 3.前往抖音去设置制作好的头像',
+    //   cancelText: '取消',
+    //   confirmText: '选择头像',
+    //   success (res) {
+    //     if (res.confirm) {
+    //       that.clickChangeAvatarImage()
+    //     } else if (res.cancel) {
+    //       console.log('用户点击取消')
+    //     }
+    //   }
+    // })
     
   },
 

@@ -53,7 +53,7 @@ Page({
     let { backImageUrls } = this.data
     const tp = new Date().getTime()
     wx.request({
-      url: staticUrl + '/poster-bg.json?tp=' + tp,
+      url: staticUrl + '/avatar-poster-bg.json?tp=' + tp,
       header: {
         'Content-Type': 'application/json'
       },

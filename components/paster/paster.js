@@ -29,7 +29,7 @@ Component({
     makeInit: function () {
       let that = this
       const tp = new Date().getTime()
-      const url = staticUrl + '/paster-icon.json?tp=' + tp
+      const url = staticUrl + '/avatar-paster-icon.json?tp=' + tp
       wx.request({
         url: url,
         header: {
