@@ -308,7 +308,7 @@ Page({
   /**
    * 上传本地图片头像
    */
-  clickChangeAvatarImage: function (e) {
+  chooseFromAlbum: function (e) {
     wx.chooseImage({
       count: 1,
       sizeType: ['original', 'compressed'],
@@ -348,6 +348,51 @@ Page({
           });
         }
       }
+    });
+  },
+
+  /**
+   * 上传本地图片头像
+   */
+  chooseFromChat: function (e) {
+    wx.chooseMessageFile({
+      count: 1,
+      type: "image",
+      success: (res) => {
+        const {
+          userInfo
+        } = this.data;
+        if (res.tempFiles.length > 0) {
+          let that = this
+          wx.navigateTo({
+            url: `../imgCut/imgCut?imageurl=${res.tempFiles[0].path}`,
+            events: {
+              reloadPage: function (img) {
+                if (img != void 0) {
+                  userInfo.highAvatarUrl = img;
+                  userInfo.avatarUrl = img;
+                  that.setData({
+                    logoPath: null,
+                    userInfo,
+                    hasUserInfo: true,
+                    handFlg: true
+                  });
+                } else {
+                  wx.showToast({
+                    title: '请选择高清图像尺寸至少200x200以上！',
+                    icon: 'none',
+                  });
+                }
+              }
+            }
+          });
+        } else {
+          wx.showToast({
+            title: res.errMsg,
+            icon: 'none'
+          });
+        }
+      },
     });
   },
 
